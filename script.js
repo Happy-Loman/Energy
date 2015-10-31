@@ -266,8 +266,8 @@ $("#generator").click(function(){
 		batteries.amount -= generator.batteriesNeeded;
 		wires.amount -= generator.wiresNeeded;
 
-		generator.batteriesNeeded += generator.batteriesNeeded * 0.4;
-		generator.wiresNeeded += generator.wiresNeeded * 0.4;
+		generator.batteriesNeeded += Math.round(generator.batteriesNeeded * 0.2);
+		generator.wiresNeeded += Math.round(generator.wiresNeeded * 0.2);
 	}
 });
 
@@ -279,8 +279,8 @@ $("#charger").click(function(){
 		wires.amount -= charger.wiresNeeded;
 		generator.amount -= charger.generatorsNeeded;
 
-		charger.batteriesNeeded += charger.batteriesNeeded * 0.5;
-		charger.wiresNeeded += charger.wiresNeeded * 0.5;
+		charger.batteriesNeeded += Math.round(charger.batteriesNeeded * 0.3);
+		charger.wiresNeeded += Math.round(charger.wiresNeeded * 0.3);
 	}
 });
 
@@ -291,7 +291,8 @@ $("#heat").click(function(){
 		lightbulb.amount -= heat.lightbulbNeeded;		
 		generator.amount -= heat.generatorsNeeded;
 
-		heat.lightbulbNeeded +=  heat.lightbulbNeeded * 0.7;
+		heat.lightbulbNeeded +=  Math.round(heat.lightbulbNeeded * 0.4);
+		heat.generatorsNeeded += Math.round(heat.generatorsNeeded * 0.4);
 	}
 });
 
@@ -503,7 +504,7 @@ function gameLoop(){
 	}
 
 	if(energy.enrg > 1000000000 && parts.amount > 1000000000000 && solar.amount > 50){
-		alert("You beat the game, if youre seeing this then I amd slacking on updates dont worry i'll remove the alert soon");
+		alert("You beat the game");
 	}
 }
 
