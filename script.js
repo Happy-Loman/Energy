@@ -23,7 +23,7 @@ function GID(id){
 var batteries = {
 	name:"Batteries",
 	amount: 0,
-    	E_produced: 0.1,
+    E_produced: 0.1,
 	searching:false,
 	looking: false, 
 	convert: false,
@@ -43,7 +43,7 @@ var batteries = {
 var wires = {
 	name:"Wires",
 	amount: 0,
-    	E_produced: 0.5,
+    E_produced: 0.5,
 	searching:false,
 	looking: false,
 	convert: false,
@@ -64,7 +64,7 @@ var wires = {
 var lightbulb = {
 	name:"Lightbulb",
 	amount: 0,
-    	E_produced: 3,
+    E_produced: 3,
 	searching:false,
 	looking: false,
 	convert: false,
@@ -85,7 +85,7 @@ var lightbulb = {
 var generator = {
 	name:"Generator",
 	amount: 0,
-    	E_produced: 2,
+    E_produced: 2,
 	convert: false,
 	open:false,
 	makeable:false,
@@ -99,7 +99,7 @@ var generator = {
 var charger = {
 	name:"Charger",
 	amount: 0,
-    	E_produced: 3,
+    E_produced: 3,
 	convert: false,
 	open:false,
 	makeable:false,
@@ -114,7 +114,7 @@ var charger = {
 var heat = {
 	name:"Heat",
 	amount: 0,
-    	E_produced: 5,
+    E_produced: 5,
 	convert: false,
 	open:false,
 	makeable:false,
@@ -128,8 +128,8 @@ var heat = {
 var solar = {
 	name:"Solar",
 	amount: 0,
-    	E_produced: 50,
-    	searching:false,
+    E_produced: 50,
+    searching:false,
 	looking: false,
 	ctfUpper: 100,
 	energyNeeded: 1000000,
@@ -145,9 +145,9 @@ var energy = {
 var parts = {
 	name: "Parts",
 	amount:0,
-	//save for later version/////
-    	/*type:["Thrust", ""],	*/
-    	/////////////////////////////
+	//save for later version//////
+    /*type:["Thrust", ""],	*/
+    /////////////////////////////
 };
 
 var ship = {
@@ -605,24 +605,16 @@ listRef.on("value", function(snap) {
   document.getElementById("userNum").innerHTML = "Current Players: " + l;
 });
 
-//Webwork stuff to add later/////////////////////
-/*var put;
-function timedCount() {
-    	put = {
-		batteries:batteries,
-        	wires:wires,
-        	lightbulb:lightbulb,
-        	generator:generator,
-        	charger:charger,
-        	heat:heat,
-        	solar:solar,
-        	energy:energy,
-        	parts:parts,
-        	ship:ship,
-	};
-    postMessage(put, "http://happy-loman.github.io/Energy/");
-    setTimeout("timedCount()",500);
-}
 
-timedCount();*/
-//////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
