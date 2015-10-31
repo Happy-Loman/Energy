@@ -127,8 +127,38 @@
           </div>
       </div>
     </div>
-    	<script type="text/javascript" src="script.js"></script> 
-	<script type="text/javascript" src="save.js"></script>
-   	<script type="text/javascript" src="jQuery.js"></script>
+
+
+    <script type="text/javascript" src="save.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="jQuery.js"></script>
 </body>
 </html>
+
+<!--
+
+  <script>
+    var w;
+    if(typeof(Worker) !== "undefined") {
+            if(typeof(w) == "undefined") {
+                  w = new Worker("script.js");
+            }
+            w.onmessage = function(event) {
+              console.log("event");
+                  var n = event.data;
+                  batteries = n.batteries;
+            wires = n.wires;
+        lightbulb = n.lightbulb;
+            generator = n.generator;
+            charger = n.charger;
+            heat = n.heat;
+            solar = n.solar;
+            energy = n.energy;
+            parts = n.parts;
+            ship = n.ship;
+            };
+        } else {
+            alert("Sorry! No Web Worker support.");
+        }
+  </script>
+-->
