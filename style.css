@@ -1,0 +1,270 @@
+@import url(https://fonts.googleapis.com/css?family=Maven+Pro);
+
+*{
+    transition:all 0.2s;
+	font-family: 'Maven Pro', sans-serif;
+	user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body{
+    background-color:#222222;
+    color:white;
+}
+
+.mouse{
+    transition:all 0s;
+    background-color:white;
+    color:black;
+    opacity:0.9;
+    text-align:center;
+    padding:10px;
+    font-size:14px;
+    z-index: 20;
+
+    font-weight:900;
+    border:2px solid rgb(200, 200, 205);
+    border-radius:0px;
+    background-color:rgb(200, 200, 215);
+    box-shadow:0px 5px 1px rgb(100, 100, 105);
+}
+
+.help{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    width:90%;
+    height:480px;
+    border:1px solid none;
+    text-align:center;
+}
+
+.off{
+    display: none;
+    z-index:1;
+}
+
+.help_{
+    background-color:rgba(105, 104, 254, 1);
+    color:white;
+    font-weight:900;
+    width:120px;
+    padding:100px;
+    padding-bottom:160px;
+    padding-top:170px;
+    text-align:center;
+    margin:10px;
+    font-size:30px;
+    display:inline-block;
+    cursor:pointer;
+    z-index:-1;
+}
+
+.help_:hover{
+    background-color:white;
+    color:rgba(105, 104, 254, 1);
+    transform:rotateX(10deg);
+    box-shadow: 10px 10px 5px rgba(105, 104, 254, 1);
+    z-index:1;
+}
+
+.show{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    width:500px;
+    height:400px; 
+    z-index:1;
+}
+
+.none{
+    display:none;
+}
+
+.show_{
+  display:block;
+}
+
+.game_area_container{
+	border:5px solid white;
+	left:0;
+	right:0;
+	margin:auto;
+}
+
+.game_area{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+	text-align:center;
+}
+
+.finds_container{
+	background-color:#333333;
+	height:60px;
+	padding:17px;
+	text-align:center;
+}
+
+.finds{
+    font-size:22px;
+	width:200px;
+	padding:10px;
+	display:inline-block;
+	margin-left:50px;
+	margin-right:50px;
+	margin-top:5px;
+	border-radius:10px;
+}
+
+.setting{
+    width:100px;
+    position:absolute;
+    left:-105px;
+    top:25px;
+    padding:5px;
+    border:2px solid rgb(70, 155, 90);
+    border-radius:0px;
+    background-color:rgb(60, 155, 60);
+    color:white;
+    font-weight:900;
+    box-shadow:0px 5px 1px rgb(0, 155, 0);
+    cursor:pointer;
+    color:white;
+    text-align: center;
+    z-index: 1000;
+}
+
+.setting:hover{
+    left:0px;
+}
+
+.settingshow{
+    left:10px;
+}
+
+.game_elements{
+	border:1px solid none;
+	width:80%;
+	height:80%;
+	position:absolute;
+	top:50px;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+	text-align:center;
+}
+
+.bot{
+	width:100px;
+    height:15px;
+    padding:5px;
+    text-align:center;
+    font-size:13px;
+	margin-left:30%;
+	margin-bottom:10px;
+	
+    border:2px solid rgb(100, 100, 205);
+    border-radius:0px;
+    background-color:rgb(100, 100, 225);
+    color:white;
+    font-weight:900;
+    box-shadow:0px 5px 1px rgb(100, 0, 255);
+}
+
+.button_container{
+    border:1px solid none;
+    width:300px;
+    height:87px;
+	padding:4px;
+	text-align:center;
+	display:inline-block;
+	margin-top:20px;
+	margin-bottom:40px;
+	margin-left:140px;
+	margin-right:110px;
+	cursor:pointer;
+	opacity:1;
+}
+
+.button{
+    width:277px;
+    height:25px;
+    padding:10px;
+    text-align:center;
+    font-size:23px;
+    border-radius:10px;
+	
+    border:2px solid rgb(225, 70, 90);
+    border-radius:0px;
+    background-color:rgb(225, 60, 60);
+    color:white;
+    font-weight:900;
+    box-shadow:0px 5px 1px rgb(225, 0, 00);
+}
+
+.clicked{
+	padding:9px;
+	font-size:21px;
+}
+
+.sub{
+    background-color:none;
+    width:300px;
+    margin-left:0px;
+    margin-top:0px;
+    text-align:center;
+}
+
+.sub_buttons{
+    display:inline-block;
+    text-align:center;
+    margin:10px;
+	
+    color:white;
+    width:44px;
+    padding:5px;
+    font-size:9px;
+	border-radius:4px;
+    border:2px solid rgb(225, 70, 90);
+    transform:rotatex(10deg);
+    box-shadow:0px 7px 4px rgb(225, 0, 0);
+    background-color:white;
+    color:rgb(225, 60, 60);
+    box-shadow:0px 5px 1px white;
+}
+
+.deactivated{
+	opacity:0.1;
+	cursor:default;
+}
+
+.active{
+    border:2px solid rgb(225, 70, 90);
+    border-radius:0px;
+    background-color:rgb(225, 60, 60);
+    color:white;
+    font-weight:900;
+    box-shadow:0px 5px 1px rgb(225, 0, 00);
+    transform:rotate(2deg);
+}
+
+
+
