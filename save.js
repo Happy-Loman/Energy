@@ -8,6 +8,8 @@ if(JSON.parse(localStorage.getItem("save2")) == null){
     console.log("done");
 }
 
+load();
+
 function saving() {
     var save = {
         batteries:batteries,
