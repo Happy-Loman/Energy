@@ -503,7 +503,7 @@ function gameLoop(){
 	}
 
 	if(energy.enrg > 1000000000 && parts.amount > 1000000000000 && solar.amount > 50){
-		alert("You beat the game");
+		alert("You beat the game, if youre seeing this then I amd slacking on updates dont worry i'll remove the alert soon");
 	}
 }
 
