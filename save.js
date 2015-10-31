@@ -51,7 +51,7 @@ window.setInterval(function(){
 }, 10);
 
 window.setTimeout(function(){
-    //load();
+    load();
     loaded = true;
     console.log("done");
 }, 1000);
