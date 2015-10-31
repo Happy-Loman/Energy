@@ -605,7 +605,8 @@ listRef.on("value", function(snap) {
   document.getElementById("userNum").innerHTML = "Current Players: " + l;
 });
 
-var put;
+//Webwork stuff to add later/////////////////////
+/*var put;
 function timedCount() {
     	put = {
 		batteries:batteries,
@@ -623,4 +624,5 @@ function timedCount() {
     setTimeout("timedCount()",500);
 }
 
-timedCount();
+timedCount();*/
+//////////////////////////////////////////////
