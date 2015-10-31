@@ -150,6 +150,7 @@ var parts = {
     /////////////////////////////
 };
 
+//Save for later version//
 var ship = {
 	energy: 0,
     batteries: 0,
@@ -160,6 +161,7 @@ var ship = {
 	solar: 0,
 	launch: false,
 };
+////////////////////
 
 //Look for energy
 function lookFor(item){
@@ -499,6 +501,10 @@ function gameLoop(){
 		solar.open = true;
 		$("#solar_button").removeClass("deactivated");
 	}
+
+	if(energy.enrg > 1000000000 && parts.amount > 1000000000000 && solar.amount > 50){
+		Alert("You beat the game");
+	}
 }
 
 //Look for speed and loop
@@ -604,10 +610,6 @@ listRef.on("value", function(snap) {
   var l = snap.numChildren();
   document.getElementById("userNum").innerHTML = "Current Players: " + l;
 });
-
-
-
-
 
 
 
