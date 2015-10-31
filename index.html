@@ -135,6 +135,7 @@
             			w = new Worker("script.js");
         		}
         		w.onmessage = function(event) {
+        			console.log("event");
             		 	var n = event.data;
             			batteries = n.batteries;
     				wires = n.wires;
