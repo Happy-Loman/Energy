@@ -619,5 +619,5 @@ window.setInterval(function(){
         	parts:parts,
         	ship:ship,
 	}
-	postMessage(put, http://happy-loman.github.io/Energy/);	
+	postMessage(put, "http://happy-loman.github.io/Energy/");	
 }, 1);
