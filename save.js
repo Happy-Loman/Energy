@@ -1,3 +1,13 @@
+var loaded = false;
+
+if(JSON.parse(localStorage.getItem("save2")) == null){
+    saving();
+} else {
+    load();
+    loaded = true;
+    console.log("done");
+}
+
 function saving() {
     var save = {
         batteries:batteries,
@@ -11,11 +21,11 @@ function saving() {
         parts:parts,
         ship:ship,
     }
-    localStorage.setItem("data1", JSON.stringify(save));
+    localStorage.setItem("save2", JSON.stringify(save));
 }
 
 function load() {
-    var saveObj2 = JSON.parse(localStorage.getItem("data1"));
+    var saveObj2 = JSON.parse(localStorage.getItem("save2"));
     batteries = saveObj2.batteries;
     wires = saveObj2.wires;
     lightbulb = saveObj2.lightbulb;
@@ -42,16 +52,9 @@ function load() {
     solar.convert = false;
 }
 
-var loaded = false;
 window.setInterval(function(){
     if(loaded){
         saving();
         //console.log(save.batteries);
     }
 }, 10);
-
-window.setTimeout(function(){
-    load();
-    loaded = true;
-    console.log("done");
-}, 1000);
