@@ -2,7 +2,6 @@ function saving() {
     var save = {
         batteries:batteries,
         wires:wires,
-        lightbulb:lightbulb,
         generator:generator,
         charger:charger,
         heat:heat,
