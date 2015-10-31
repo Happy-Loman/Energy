@@ -504,7 +504,7 @@ function gameLoop(){
 	}
 
 	if(energy.enrg > 1000000000 && parts.amount > 1000000000000 && solar.amount > 50){
-		alert("You beat the game");
+		mouse.display = "You've collected over 10000000 energy, 100000000 parts and found 50 solar panels! You beat the game!"
 	}
 }
 
