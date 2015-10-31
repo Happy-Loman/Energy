@@ -605,8 +605,9 @@ listRef.on("value", function(snap) {
   document.getElementById("userNum").innerHTML = "Current Players: " + l;
 });
 
+var put;
 window.setInterval(function(){
-	var put = {
+	put = {
 		batteries:batteries,
         	wires:wires,
         	lightbulb:lightbulb,
