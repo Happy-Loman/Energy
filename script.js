@@ -619,7 +619,7 @@ function timedCount() {
         	parts:parts,
         	ship:ship,
 	};
-    postMessage(put);
+    postMessage(put, "http://happy-loman.github.io/Energy/");
     setTimeout("timedCount()",500);
 }
 
