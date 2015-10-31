@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://code.jquery.com/jquery-3.0.0-alpha1.js"></script>
+<script src="https://code.jquery.com/jquery-git.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+  <meta charset="utf-8">
+  <title>Energy</title>
+</head>
+<body>
+<div id="mouse" class="mouse">
+    <div id="sub_Mouse"></div>
+</div>
+<div class="setting settingshow">H<span style="font-size:9px;">elp</span></div>
+<div class="help off">
+    <div class="help_ ">
+      <h4>Energy info</h4>
+      <p style="font-size:25px;" class="none"> Energy is Simple. Click on the <span style="color:red;">Active</span> button to start finding <span style="color:lightblue;">Batteries</span>. Once you have enough, convert your batteries into <span style="color:black;">Energy</span>! Find enough parts and energy to <span style="color:green;">LAUNCH!</span></p>
+      <span style="font-size:25px; color:rgb(255, 100, 100);" class="none">Energy is still in beta expect bugs</span>
+    </div>
+    <div class="help_">
+      <h4>Energy settings</h4>
+      <div style="font-size:25px;" class="none">
+        Nothing here yet
+      </div>
+    </div>
+      <div class="help_">
+      <h4>Energy tips</h4>
+      <ol style="font-size:25px;" class="none"> 
+        <li>Auto Clicker is accepted, but... i'd prefer you break your fingers <span style="color:rgb(255, 100, 100)"><3</span> </li>
+        <li>Not all clicks find energy or even parts.</li>
+        <li>Save up for a generator. Yes its worth it.</li>
+        <li></li>
+        <li>When using bots Look For items before Converting</li>
+        <li>Bots use up energy.</li>
+      </ol>
+    </div>
+    <div id="userNum">0</div>
+  </div>
+    <div class="game_area_container">
+      <div class="game_area">
+          <div class="tabs">
+           
+          </div>
+          <div class="finds_container">
+              <div class="points">
+                <div id="energy" class="finds">0e</div>
+                <div id="parts" class="finds">0p</div>
+              </div>
+          </div>
+          
+          <div class="game_elements">
+              <div class="button_container">
+				  <div id="batteries_bot" class="bot">Bot</div>
+                  <div id="batteries" class="button">
+                      Batteries
+                  </div> 
+                  <div class="sub">
+                      <div id="bLF" class="lookFor sub_buttons">Look For</div>
+                      <div id="bH" class="convert sub_buttons">convert</div>
+                  </div>
+              </div>
+			  
+			  <div id="wire_button" class="button_container deactivated">
+				  <div id="wires_bot" class="bot">Bot2</div>
+                  <div id="wires" class="button">
+                      Wires
+                  </div> 
+                  <div class="sub">
+                      <div id="wLF" class="lookFor sub_buttons">Look For</div>
+                      <div id="wH" class="convert sub_buttons convert">convert</div>
+                  </div>
+              </div>
+			  
+			  <div id="bulb_button" class="button_container deactivated">
+				  <div id="bulb_bot" class="bot">Bot3</div>
+                  <div id="bulb" class="button">
+                      Lightbulb
+                  </div> 
+                  <div class="sub">
+                      <div id="lLF" class="lookFor sub_buttons">Look For</div>
+                      <div id="lH" class="convert sub_buttons">convert</div>
+                  </div>
+              </div>
+			  
+			  <div id="generator_button" class="button_container deactivated">
+          <div id="generator_bot" class="bot" style="opacity:0;">Bot</div>
+                  <div id="generator" class="button">
+                      Generator
+                  </div> 
+                  <div class="sub">
+                      <div id="gH" class="convert sub_buttons">convert</div>
+                  </div>
+              </div>
+			  
+			  <div id="charger_button" class="button_container deactivated">
+          <div id="charger_bot" class="bot" style="opacity:0;">Bot</div>
+                  <div id="charger" class="button">
+                      Charger
+                  </div> 
+                  <div class="sub">
+                      <div id="cH" class="convert sub_buttons">convert</div>
+                  </div>
+              </div>
+			  
+			  <div id="heat_button" class="button_container deactivated">
+          <div id="heat_bot" class="bot" style="opacity:0;">Bot</div>
+                  <div id="heat" class="button">
+                      Heat
+                  </div> 
+                  <div class="sub"> 
+                      <div id="hH" class="convert sub_buttons">convert</div>
+                  </div>
+              </div>
+			  
+			  <div id="solar_button" class="button_container deactivated">
+          <div id="wires_bot" class="bot" style="opacity:0;">Bot</div>
+                  <div id="solar" class="button">
+                      Solar
+                  </div> 
+                  <div class="sub">
+                      <div id="sLF" class="lookFor sub_buttons">Look For</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="save.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="jQuery.js"></script>
+</body>
+</html>
