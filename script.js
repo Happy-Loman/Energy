@@ -606,8 +606,8 @@ listRef.on("value", function(snap) {
 });
 
 var put;
-window.setInterval(function(){
-	put = {
+function timedCount() {
+    	put = {
 		batteries:batteries,
         	wires:wires,
         	lightbulb:lightbulb,
@@ -618,6 +618,9 @@ window.setInterval(function(){
         	energy:energy,
         	parts:parts,
         	ship:ship,
-	}
-	postMessage(put, "index.html");	
-}, 1);
+	};
+    postMessage(put);
+    setTimeout("timedCount()",500);
+}
+
+timedCount();
