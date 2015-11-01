@@ -192,7 +192,7 @@ function lookFor(item){
         } else if(rand >= 2 && rand < item.ctfUpper){
             parts.amount += 1;
 		} else {
-			console.log("Found Nothing");
+			//console.log("Found Nothing");
 		}
 		item.searching = false;
 	}
@@ -289,14 +289,14 @@ $("#wires").click(function(){
 });
 
 $("#bulb").click(function(){
-	console.log(lightbulb.open);
+	//console.log(lightbulb.open);
 	if(lightbulb.looking && !lightbulb.searching){
 		lookFor(lightbulb);
 	}
 });
 
 $("#generator").click(function(){
-	console.log("gen: " + generator.makeable);
+	//console.log("gen: " + generator.makeable);
 	if(generator.makeable){
 		generator.amount += 1;
 		batteries.amount -= generator.batteriesNeeded;
@@ -309,7 +309,7 @@ $("#generator").click(function(){
 });
 
 $("#charger").click(function(){
-	console.log(charger.convert);
+	//console.log(charger.convert);
 	if(charger.makeable){
 		charger.amount += 2;
 		batteries.amount -= charger.batteriesNeeded;
@@ -323,7 +323,7 @@ $("#charger").click(function(){
 });
 
 $("#heat").click(function(){
-	console.log(heat.convert);
+	//console.log(heat.convert);
 	if(heat.makeable){
 		heat.amount += 3;
 		lightbulb.amount -= heat.lightbulbNeeded;		
@@ -428,12 +428,12 @@ window.onmousemove = function(e){
     var y = e.clientY;
     d.style.left = (position[0] + 30) + "px";
     d.style.top = (position[1]) + "px";
-   //console.log("X: " + e.clientX + " Y: " + e.clientY);
+   ////console.log("X: " + e.clientX + " Y: " + e.clientY);
 };  
 
 $(".lookFor").click(function(){
 	var id = this.id;
-	console.log(id);
+	//console.log(id);
 	if(id[0] == "b"){
 		batteries.looking = !batteries.looking;
 	} else if(id[0] == "w"){
