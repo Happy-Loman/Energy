@@ -225,7 +225,8 @@ function removeE(amount){
 
 var clicked = false;
 $(".button").click(function(){
-    if(!clicked){
+	//removed animation for now causes page to jump, fix that.
+    /*if(!clicked){
 		$(this).addClass("clicked");
 		clicked = true;
 	}
@@ -233,7 +234,7 @@ $(".button").click(function(){
 	window.setTimeout(function(){
 		$(".button").removeClass("clicked");
 		clicked = false;
-	}, 100);
+	}, 100);*/
 });
 
 $(".sub_buttons").click(function(){
