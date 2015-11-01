@@ -279,3 +279,40 @@ body{
     box-shadow:0px 5px 1px rgb(225, 0, 00);
     transform:rotate(2deg);
 }
+
+
+.chat{
+    border:2px solid rgb(225, 70, 90);
+    border-radius:0px;
+    background-color:rgb(225, 60, 60);
+    color:white;
+    font-weight:900;
+    font-size:20px;
+    box-shadow:0px 5px 1px rgb(225, 0, 00);
+    text-align:center;
+    width:400px;
+    height:370px;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+
+#username{
+    text-align:center;
+}
+
+.example-chat-messages{
+    background-color:white;
+    width:90%;
+    height:200px;
+    color:#222222;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    margin-top:10px;
+}
