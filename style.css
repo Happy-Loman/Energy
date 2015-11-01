@@ -53,27 +53,26 @@ body{
 }
 
 .help_{
-    background-color:rgba(105, 104, 254, 1);
-    color:white;
-    font-weight:900;
-    width:120px;
-    padding:100px;
-    padding-bottom:160px;
-    padding-top:170px;
-    text-align:center;
-    margin:10px;
-    font-size:30px;
-    display:inline-block;
-    cursor:pointer;
-    z-index:-1;
+	background-color:rgba(105, 104, 254, 1);
+	color:#222222;
+	font-weight:900;
+	width:120px;
+	padding:100px;
+	padding-bottom:160px;
+	padding-top:170px;
+	text-align:center;
+	margin:10px;
+	font-size:30px;
+	display:inline-block;
+	cursor:pointer;
+	z-index:-1;
 }
 
 .help_:hover{
-    background-color:white;
-    color:rgba(105, 104, 254, 1);
-    transform:rotateX(10deg);
-    box-shadow: 10px 10px 5px rgba(105, 104, 254, 1);
-    z-index:1;
+    	background-color:white;
+	transform:rotateX(10deg);
+	box-shadow: 10px 10px 5px rgba(105, 104, 254, 1);
+	z-index:1;
 }
 
 .show{
