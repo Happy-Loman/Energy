@@ -1,14 +1,29 @@
 //Help
 $(".help_").click(function(){
-	$(this).toggleClass("show");
-	$(this).children().toggleClass("show_");
+	$(this).addClass("show");
+	$(this).children().addClass("show_");
+});
+
+$(".help_").dblclick(function(){
+	$(this).removeClass("show");
+	$(this).children().removeClass("show_");
 });
 
 $(".setting").click(function(){
 	$(".help").toggleClass("off");
 	$(".game_area_container").toggleClass("off");
 	$(this).removeClass("settingshow");
-})
+});
+
+var toolTip = true;
+var auto = false;
+$("#toolTip").click(function(){
+	toolTip = !toolTip;
+});
+
+$("#auto").click(function(){
+	auto = !auto;
+});
 
 //Random number Generator
 function randNum( min, max ) {
@@ -174,7 +189,7 @@ function lookFor(item){
 	        } else {
 	        	item.amount += Math.round(randNum(1, 5));
 	        }
-        } else if(rand > 2 && rand < item.ctfUpper){
+        } else if(rand >= 2 && rand < item.ctfUpper){
             parts.amount += 1;
 		} else {
 			console.log("Found Nothing");
@@ -183,19 +198,39 @@ function lookFor(item){
 	}
 }
 
+function autoLook(item){
+	lookFor(item);
+}
+
+window.setInterval(function(){
+	if(batteries.looking && auto){
+		lookFor(batteries);
+	}
+
+	if(wires.looking && auto){
+		lookFor(wires);
+	}
+
+	if(lightbulb.looking && auto){
+		lookFor(lightbulbNeeded);
+	}
+}, 100);
+
 //convert found energy
 function convert(item){
 	if(item.open && item.convert){
 		var x = 0;
-	    if(item.amount > 0){
-		    item.amount--;
-		    x = Number(energy.enrg);
-	        energy.enrg = x + (item.E_produced);
-		    energy.enrg = (energy.enrg).toFixed(2);
-		    x += item.E_produced;
+		var y = Math.floor(item.amount * 0.1);
+		if(y <= 0){
+			y = item.amount;
+		}
+	    if(item.amount >= 0){
+		item.amount -= y;
+		x = Number(energy.enrg);
+		energy.enrg = x + (item.E_produced * y);
+		energy.enrg = (energy.enrg).toFixed(2);
+		x += item.E_produced;
 	    }
-	} else {
-		
 	}
 }
 
@@ -270,6 +305,7 @@ $("#generator").click(function(){
 		generator.batteriesNeeded += Math.round(generator.batteriesNeeded * 0.2);
 		generator.wiresNeeded += Math.round(generator.wiresNeeded * 0.2);
 	}
+	mouse.display = generator.bot.display;
 });
 
 $("#charger").click(function(){
@@ -283,6 +319,7 @@ $("#charger").click(function(){
 		charger.batteriesNeeded += Math.round(charger.batteriesNeeded * 0.3);
 		charger.wiresNeeded += Math.round(charger.wiresNeeded * 0.3);
 	}
+	mouse.display = charger.bot.display;
 });
 
 $("#heat").click(function(){
@@ -295,6 +332,7 @@ $("#heat").click(function(){
 		heat.lightbulbNeeded +=  Math.round(heat.lightbulbNeeded * 0.4);
 		heat.generatorsNeeded += Math.round(heat.generatorsNeeded * 0.4);
 	}
+	mouse.display = heat.bot.display;
 });
 
 $("#solar").click(function(){
@@ -308,8 +346,9 @@ $("#batteries_bot").click(function(){
 		batteries.bot.activated = true;
 		batteries.bot.amount ++;
 		removeE(batteries.bot.cost);
-		batteries.bot.cost += batteries.bot.cost * 0.4;
+		batteries.bot.cost += Math.round(batteries.bot.cost * 0.4);
 	}
+	mouse.display = batteries.bot.display;
 });
 
 $("#wires_bot").click(function(){
@@ -317,8 +356,9 @@ $("#wires_bot").click(function(){
 		wires.bot.activated = true;
 		wires.bot.amount ++;
 		removeE(wires.bot.cost);
-		wires.bot.cost += wires.bot.cost * 0.6;
+		wires.bot.cost += Math.round(wires.bot.cost * 0.6);
 	}
+	mouse.display = wires.bot.display;
 });
 
 $("#bulb_bot").click(function(){
@@ -326,8 +366,9 @@ $("#bulb_bot").click(function(){
 		lightbulb.bot.activated = true;
 		lightbulb.bot.amount ++;
 		removeE(lightbulb.bot.cost);
-		lightbulb.bot.cost += lightbulb.bot.cost * 0.7;
+		lightbulb.bot.cost += Math.round(lightbulb.bot.cost * 0.7);
 	}
+	mouse.display = lightbulbNeeded.bot.display;
 });
 
 $("#batteries").hover(function(){
@@ -385,7 +426,6 @@ window.onmousemove = function(e){
     
     var x = e.clientX;
     var y = e.clientY;
-    GID("mouse").style.opacity = 0.7;
     d.style.left = (position[0] + 30) + "px";
     d.style.top = (position[1]) + "px";
    //console.log("X: " + e.clientX + " Y: " + e.clientY);
@@ -453,17 +493,17 @@ function gameLoop(){
 	if(energy.enrg <= 0){
 		energy.enrg = 0;
 	}
-	if(batteries.amount > wires.batteriesNeeded || wires.open){
+	if(batteries.amount >= wires.batteriesNeeded || wires.open){
 		wires.open = true;
 		$("#wire_button").removeClass("deactivated");
 	}
 
-	if(((batteries.amount > lightbulb.batteriesNeeded) && (wires.amount > lightbulb.wiresNeeded)) || lightbulb.open){
+	if(((batteries.amount >= lightbulb.batteriesNeeded) && (wires.amount >= lightbulb.wiresNeeded)) || lightbulb.open){
 		lightbulb.open = true;
 		$("#bulb_button").removeClass("deactivated");
 	}
 
-	if((batteries.amount > generator.batteriesNeeded && wires.amount > generator.wiresNeeded)){
+	if((batteries.amount >= generator.batteriesNeeded && wires.amount >= generator.wiresNeeded)){
 		generator.open = true;
 		generator.makeable = true;
 		$("#generator_button").removeClass("deactivated");
@@ -475,7 +515,7 @@ function gameLoop(){
 		$("#generator_button").removeClass("deactivated");
 	}
 
-	if((batteries.amount > charger.batteriesNeeded && wires.amount > charger.wiresNeeded && generator.amount > charger.generatorsNeeded)){
+	if((batteries.amount >= charger.batteriesNeeded && wires.amount >= charger.wiresNeeded && generator.amount >= charger.generatorsNeeded)){
 		charger.open = true;
 		charger.makeable = true;
 		$("#charger_button").removeClass("deactivated");
@@ -487,7 +527,7 @@ function gameLoop(){
 		$("#charger_button").removeClass("deactivated");
 	}
 
-	if((lightbulb.amount > heat.lightbulbNeeded && generator.amount > heat.generatorsNeeded)){
+	if((lightbulb.amount >= heat.lightbulbNeeded && generator.amount >= heat.generatorsNeeded)){
 		heat.open = true;
 		heat.makeable = true;
 		$("#heat_button").removeClass("deactivated");
@@ -504,8 +544,19 @@ function gameLoop(){
 		$("#solar_button").removeClass("deactivated");
 	}
 
-	if(energy.enrg > 1000000000 && parts.amount > 1000000000000 && solar.amount > 50){
+	if(energy.enrg >= 1000000000 && parts.amount >= 1000000000000 && solar.amount >= 50){
 		mouse.display = "You've collected over 10000000 energy, 100000000 parts and found 50 solar panels! You beat the game!"
+	}
+
+	if(autoLook){
+		GID("auto").innerHTML = "Auto Click: " + auto;
+		GID("toolTip").innerHTML = "Tool Tip: " + toolTip;
+	}
+
+	if(toolTip){
+		GID("mouse").style.opacity = 0.7;
+	} else {
+		GID("mouse").style.opacity = 0;
 	}
 }
 
@@ -516,17 +567,17 @@ window.setInterval(function(){
 }, 1000 * speed);
 
 function updateBot(){
-	if(batteries.bot.activated && energy.enrg > 0 && batteries.looking){
+	if(batteries.bot.activated && energy.enrg >= 0 && batteries.looking){
 		lookFor(batteries);
 		removeE(batteries.bot.eIntput);
 	}
 
-	if(wires.bot.activated && energy.enrg > 0 && wires.looking){
+	if(wires.bot.activated && energy.enrg >= 0 && wires.looking){
 		lookFor(wires);
 		removeE(wires.bot.eIntput);
 	}
 
-	if(lightbulb.bot.activated && energy.enrg > 0 && lightbulb.looking){
+	if(lightbulb.bot.activated && energy.enrg >= 0 && lightbulb.looking){
 		lookFor(lightbulb);
 		removeE(lightbulb.bot.eIntput);
 	}
