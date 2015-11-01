@@ -198,10 +198,6 @@ function lookFor(item){
 	}
 }
 
-function autoLook(item){
-	lookFor(item);
-}
-
 window.setInterval(function(){
 	if(batteries.looking && auto){
 		lookFor(batteries);
@@ -548,10 +544,9 @@ function gameLoop(){
 		mouse.display = "You've collected over 10000000 energy, 100000000 parts and found 50 solar panels! You beat the game!"
 	}
 
-	if(autoLook){
-		GID("auto").innerHTML = "Auto Click: " + auto;
-		GID("toolTip").innerHTML = "Tool Tip: " + toolTip;
-	}
+	
+	GID("auto").innerHTML = "Auto Click: " + auto;
+	GID("toolTip").innerHTML = "Tool Tip: " + toolTip;
 
 	if(toolTip){
 		GID("mouse").style.opacity = 0.7;
@@ -567,17 +562,17 @@ window.setInterval(function(){
 }, 1000 * speed);
 
 function updateBot(){
-	if(batteries.bot.activated && energy.enrg >= 0 && batteries.looking){
+	if(batteries.bot.activated && energy.enrg > 0 && batteries.looking){
 		lookFor(batteries);
 		removeE(batteries.bot.eIntput);
 	}
 
-	if(wires.bot.activated && energy.enrg >= 0 && wires.looking){
+	if(wires.bot.activated && energy.enrg > 0 && wires.looking){
 		lookFor(wires);
 		removeE(wires.bot.eIntput);
 	}
 
-	if(lightbulb.bot.activated && energy.enrg >= 0 && lightbulb.looking){
+	if(lightbulb.bot.activated && energy.enrg > 0 && lightbulb.looking){
 		lookFor(lightbulb);
 		removeE(lightbulb.bot.eIntput);
 	}
