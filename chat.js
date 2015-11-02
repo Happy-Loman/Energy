@@ -83,7 +83,13 @@ var n2 = ["Laveta", "Weideman",
 
 var ran = Math.round(randNum(0, 27));
 var ran2 = Math.round(randNum(0, 27)); 
-var username = n1[ran] + " " + n2[ran2]; 
+var username; 
+if(JSON.parse(localStorage.getItem("username1")) == null){
+    username = n1[ran] + " " + n2[ran2]; 
+    localStorage.setItem("username1", JSON.stringify(username));
+} else {
+    username = JSON.parse(localStorage.getItem("username1"));
+}
 var s = new Date().getTime(); 
 var lastMsg = "";
 messageField.keypress(function (e) {
